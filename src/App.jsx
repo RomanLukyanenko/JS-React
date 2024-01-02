@@ -1,16 +1,23 @@
-import './App.css'
-import { Button } from './components/Button';
-import { Timer } from './components/Timer';
-import { Fetch } from './components/FetchPosts';
-
+import { useRef, useState } from "react";
+import { Button } from "./components/Button";
 
 
 export const App = () => {
+    const inputRef = useRef(null);
+    const [color, setColor] = useState()
+
     return (
         <>
-        <Button />
-        <Timer />
-        <Fetch />
+            <button onClick={() => {
+            setColor(inputRef.current.value)
+            }}>
+                Get color 
+            </button> 
+
+            <Button ref={inputRef}/>
+            
+            <p> Selected color {color} </p>
         </>
         );
-    };
+};
+};
